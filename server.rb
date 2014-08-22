@@ -1,6 +1,6 @@
 require "sinatra"
 # require "sinatra/reloader"
-require "CSV"
+# require "CSV"
 # require "pry"
 require "redis"
 require "json"
