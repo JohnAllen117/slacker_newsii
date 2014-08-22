@@ -34,10 +34,7 @@ def save_article(url, title, description)
 end
 
 get '/' do
-  @submission = []
-  CSV.foreach('links.csv', headers: true, :header_converters => :symbol, :converters => :all) do |row|
-    @submission << row.to_hash
-  end
+  @submission = find_articles
   erb :index
 end
 
@@ -50,8 +47,6 @@ post '/submit' do
   url = params["url_form"]
   description = params["description_form"]
   formatted_string = "#{title},#{url},#{description}"
-  File.open('links.csv', 'a') do |file|
-    file.puts(formatted_string)
-  end
+  save_article(url, title, description)
   redirect '/'
 end
