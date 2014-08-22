@@ -1,7 +1,7 @@
 require "sinatra"
-require "sinatra/reloader"
+# require "sinatra/reloader"
 require "CSV"
-require "pry"
+# require "pry"
 require "redis"
 require "json"
 
